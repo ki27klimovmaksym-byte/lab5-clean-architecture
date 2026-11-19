@@ -29,7 +29,8 @@ class TaskCli {
         if (args.length != 2 || args[1].trim().isEmpty) {
           throw ArgumentError('Використання: done ID');
         }
-        final changed = await completeTask(args[1]);
+        final id = args[1].trim();
+        final changed = await completeTask(id);
         print(changed ? 'Завдання позначено виконаним.' : 'Завдання з таким ID не знайдено.');
       case 'help':
         print('Команди: list | add "назва" | done ID | help');
