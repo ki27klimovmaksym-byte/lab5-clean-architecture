@@ -21,7 +21,11 @@ class JsonTaskRepository implements TaskRepository {
   Future<List<TaskItem>> getAll() => _read();
   @override
   Future<void> save(TaskItem task) async {
-    final tasks = await _read()..add(task);
+    final tasks = await _read();
+    if (tasks.any((stored) => stored.id == task.id)) {
+      throw StateError('Завдання з ID ${task.id} уже існує.');
+    }
+    tasks.add(task);
     await _write(tasks);
   }
   @override
