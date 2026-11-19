@@ -8,6 +8,7 @@ class CompleteTask {
     final tasks = await _repository.getAll();
     final index = tasks.indexWhere((task) => task.id == id);
     if (index < 0) return false;
+    if (tasks[index].isCompleted) return true;
 
     final updatedTasks = [
       for (var i = 0; i < tasks.length; i++)
