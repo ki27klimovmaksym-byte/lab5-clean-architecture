@@ -3,4 +3,5 @@ class TaskItem {
   final String id;
   final String title;
   final bool isCompleted;
+  TaskItem complete() => TaskItem(id: id, title: title, isCompleted: true);
 }
