@@ -42,9 +42,16 @@ dart run bin/lab5_clean_architecture.dart done ID
 
 ## Git-процес
 
-Віддалений репозиторій: https://github.com/ki27klimovmaksym-byte/lab5-clean-architecture (приватний). У ньому опубліковані гілки `main`, `develop`, чотири `feature/*` та тег `v1.0.0`. Чотири описи PR із зауваженнями рев’ю та виправленнями збережені в `docs/pull-requests/`, але це локальні матеріали, а не справжні GitHub PR. Feature-гілки опубліковано вже після злиття в `develop`, тому відкрити для них PR із змінами зараз не можна.
+Віддалений репозиторій: https://github.com/ki27klimovmaksym-byte/lab5-clean-architecture. У ньому є гілки `main`, `develop`, чотири початкові `feature/*` та тег `v1.0.0`. Початкові feature-гілки було злитo перед публікацією, тому їхній PR-процес описано в локальних картках `docs/pull-requests/`.
 
-Щоб повторити локальний перегляд історії:
+Після основної інтеграції для реального показу PR-рев’ю створено окремі додаткові PR-и. Вони були відкриті до злиття в `develop`, отримали коментар рев’ю та окремий виправлювальний коміт:
+
+- [PR #1 — інваріанти сутності TaskItem](https://github.com/ki27klimovmaksym-byte/lab5-clean-architecture/pull/1)
+- [PR #2 — незмінення результату репозиторію в CompleteTask](https://github.com/ki27klimovmaksym-byte/lab5-clean-architecture/pull/2)
+- [PR #3 — перевірка структури JSON у сховищі](https://github.com/ki27klimovmaksym-byte/lab5-clean-architecture/pull/3)
+- [PR #4 — перевірка ID у CLI](https://github.com/ki27klimovmaksym-byte/lab5-clean-architecture/pull/4)
+
+Щоб переглянути історію:
 
 ```sh
 git log --oneline --graph --decorate --all
@@ -52,4 +59,4 @@ git branch -a
 git show v1.0.0
 ```
 
-Коментарі рев'ю та відповіді з виправленнями наведені у PR-описах. В окремому злитті було змінено один рядок у `app.config` в інфраструктурній гілці та в `develop`; конфлікт вирішено на користь `data/tasks.json` і зафіксовано окремим merge-комітом.
+Конфлікт злиття змодельовано в `app.config`: у двох гілках змінювався `storage.path`. Конфлікт вирішено на користь шляху `data/tasks.json` і зафіксовано окремим merge-комітом.
