@@ -7,6 +7,7 @@ class TaskCli {
   final CreateTask createTask;
   final ListTasks listTasks;
   final CompleteTask completeTask;
+
   Future<void> run(List<String> args) async {
     if (args.isEmpty || args.first == 'list') {
       final tasks = await listTasks();
@@ -25,7 +26,9 @@ class TaskCli {
         final task = await createTask(args.skip(1).join(' '));
         print('Додано: ${task.title} (${task.id})');
       case 'done':
-        if (args.length != 2) throw ArgumentError('Використання: done ID');
+        if (args.length != 2 || args[1].trim().isEmpty) {
+          throw ArgumentError('Використання: done ID');
+        }
         final changed = await completeTask(args[1]);
         print(changed ? 'Завдання позначено виконаним.' : 'Завдання з таким ID не знайдено.');
       case 'help':
