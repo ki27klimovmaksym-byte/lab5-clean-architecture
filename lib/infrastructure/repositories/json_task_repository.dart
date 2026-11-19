@@ -12,12 +12,23 @@ class JsonTaskRepository implements TaskRepository {
     if (!await file.exists()) return [];
 
     final decoded = jsonDecode(await file.readAsString());
-    if (decoded is! List<Object?>) {
+    if (decoded is! List) {
       throw FormatException('Очікувався JSON-масив у файлі ${file.path}.');
     }
-    return decoded
-        .map((row) => TaskItem.fromJson(Map<String, Object?>.from(row! as Map)))
-        .toList();
+
+    final tasks = <TaskItem>[];
+    for (var index = 0; index < decoded.length; index++) {
+      final row = decoded[index];
+      if (row is! Map) {
+        throw FormatException('Запис №${index + 1} у файлі ${file.path} має бути JSON-об’єктом.');
+      }
+      try {
+        tasks.add(TaskItem.fromJson(Map<String, Object?>.from(row)));
+      } catch (error) {
+        throw FormatException('Не вдалося прочитати запис №${index + 1} у файлі ${file.path}: $error');
+      }
+    }
+    return tasks;
   }
 
   Future<void> _write(List<TaskItem> tasks) async {
