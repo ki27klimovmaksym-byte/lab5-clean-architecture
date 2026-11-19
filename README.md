@@ -42,7 +42,7 @@ dart run bin/lab5_clean_architecture.dart done ID
 
 ## Git-процес
 
-Віддалений репозиторій: https://github.com/ki27klimovmaksym-byte/lab5-clean-architecture. У ньому є гілки `main`, `develop`, чотири початкові `feature/*` та тег `v1.0.0`. Початкові feature-гілки було злитo перед публікацією, тому їхній PR-процес описано в локальних картках `docs/pull-requests/`.
+Віддалений репозиторій: https://github.com/ki27klimovmaksym-byte/lab5-clean-architecture. У ньому є гілки `main`, `develop`, чотири початкові `feature/*` та тег `v1.0.0`. Початкові feature-гілки було злито перед публікацією, тому їхній PR-процес описано в локальних картках `docs/pull-requests/`.
 
 Після основної інтеграції для реального показу PR-рев’ю створено окремі додаткові PR-и. Вони були відкриті до злиття в `develop`, отримали коментар рев’ю та окремий виправлювальний коміт:
 
@@ -50,6 +50,7 @@ dart run bin/lab5_clean_architecture.dart done ID
 - [PR #2 — незмінення результату репозиторію в CompleteTask](https://github.com/ki27klimovmaksym-byte/lab5-clean-architecture/pull/2)
 - [PR #3 — перевірка структури JSON у сховищі](https://github.com/ki27klimovmaksym-byte/lab5-clean-architecture/pull/3)
 - [PR #4 — перевірка ID у CLI](https://github.com/ki27klimovmaksym-byte/lab5-clean-architecture/pull/4)
+- [PR #5 — злиття reviewed follow-ups у main](https://github.com/ki27klimovmaksym-byte/lab5-clean-architecture/pull/5)
 
 Щоб переглянути історію:
 
