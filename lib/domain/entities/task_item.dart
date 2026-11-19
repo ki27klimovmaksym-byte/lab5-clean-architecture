@@ -1,6 +1,9 @@
 class TaskItem {
   TaskItem({required this.id, required String title, this.isCompleted = false})
       : title = title.trim() {
+    if (id.trim().isEmpty) {
+      throw ArgumentError.value(id, 'id', 'Ідентифікатор завдання не може бути порожнім.');
+    }
     if (this.title.isEmpty) {
       throw ArgumentError.value(title, 'title', 'Назва завдання не може бути порожньою.');
     }
