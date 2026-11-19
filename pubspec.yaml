@@ -1,0 +1,6 @@
+name: lab5_clean_architecture
+description: Навчальний застосунок обліку завдань із Clean Architecture.
+version: 1.0.0
+publish_to: none
+environment:
+  sdk: '>=3.3.0 <4.0.0'
